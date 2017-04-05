@@ -1,0 +1,2 @@
+# finalProject_lagou
+使用AngularJS框架仿拉勾网做的一个单页面移动端应用。
