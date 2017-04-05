@@ -3,8 +3,8 @@
 // 后端交互  ajax 请求
 angular.module('app').controller('collectCtrl', ['$scope', '$http', '$state', '$rootScope', function($scope, $http, $state, $rootScope) {
 
-	$scope.star1Img=$rootScope.star1Image;
-	$scope.star2Img=$rootScope.star2Image;	
+	$scope.star1Img = $rootScope.star1Image;
+	$scope.star2Img = $rootScope.star2Image;
 
 	$rootScope.back = 4;
 
@@ -41,14 +41,25 @@ angular.module('app').controller('collectCtrl', ['$scope', '$http', '$state', '$
 	// 星星默认显示
 	$scope.conShow = false;
 	$scope.conShow2 = true;
+	// 点击星星时，冒泡阻止默认事件
+	$scope.conClick = (e) => {
+		// 阻止冒泡事件
+		var evt = e || window.event;
+		//IE用cancelBubble=true来阻止而FF下需要用stopPropagation方法
+		evt.stopPropagation ? evt.stopPropagation() : (evt.cancelBubble = true);
 
-	$scope.conClick=() => {
+
 		$scope.conShow = false;
 		$scope.conShow2 = true;
 	}
 
-	$scope.conClick2=() => {
-		console.log(25);
+	$scope.conClick2 = (e) => {
+		// 阻止冒泡事件
+		var evt = e || window.event;
+		//IE用cancelBubble=true来阻止而FF下需要用stopPropagation方法
+		evt.stopPropagation ? evt.stopPropagation() : (evt.cancelBubble = true);
+
+		
 		$scope.conShow = true;
 		$scope.conShow2 = false;
 	}
